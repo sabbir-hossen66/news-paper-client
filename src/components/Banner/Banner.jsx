@@ -32,7 +32,7 @@ const Banner = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2000,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -43,26 +43,133 @@ const Banner = () => {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img className='w-full h-[820px]' src={bannerOne} alt="" />
+        </SwiperSlide> */}
+        <SwiperSlide>
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannerOne} alt="Banner One" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className='w-full h-[820px]' src={bannertwo} alt="" />
+
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannertwo} alt="Banner One" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className='w-full h-[820px]' src={bannerthree} alt="" />
+
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannerthree} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className='w-full h-[820px]' src={bannerfour} alt="" />
+
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannerfour} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className='w-full h-[820px]' src={bannerfive} alt="" />
+
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannerfive} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className='w-full h-[820px]' src={bannersix} alt="" />
+
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannersix} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className='w-full h-[820px]' src={bannerseven} alt="" />
+
+          <div className="relative h-full w-full">
+            <img className='w-full h-[820px]' src={bannerseven} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-800 to-transparent opacity-75">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="space-x-4">
+                  <button className="px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                    Button 1
+                  </button>
+                  <button className="px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </SwiperSlide>
 
         <div className="autoplay-progress w-8" slot="container-end">
