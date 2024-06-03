@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from '../assets/logho/news.png'
+import './Navbar.css'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
               <div className="flex justify-center items-center">
-                <img className="w-16" src={logo} alt="" />
+                <img className="w-10" src={logo} alt="" />
                 <h2 className="text-3xl">Morning Star</h2>
               </div>
               {/* <a href="#">
@@ -71,10 +72,11 @@ const Navbar = () => {
                 } lg:opacity-100 lg:translate-x-0`}
             >
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                <Link to={'/'}><a className="px-3 py-2 mx-3 mt-2">Home</a></Link>
-                <Link to={'/'}><a className="px-3 py-2 mx-3 mt-2">Add Articles</a></Link>
-                <Link to={'/'}><a className="px-3 py-2 mx-3 mt-2">All Articles</a></Link>
-                <Link to={'/'}><a className="px-3 py-2 mx-3 mt-2">Subscription</a></Link>
+
+                <li className="list-none head-section "><NavLink to={'/'}><a className="px-3 py-2 mx-3 mt-2">Home</a></NavLink></li>
+                <li className="list-none head-section "> <NavLink to={'/d'}><a className="px-3 py-2 mx-3 mt-2">Add Articles</a></NavLink></li>
+                <li className="list-none head-section "> <NavLink to={'/a'}><a className="px-3 py-2 mx-3 mt-2">All Articles</a></NavLink></li>
+                <li className="list-none head-section "> <NavLink to={'/s'}><a className="px-3 py-2 mx-3 mt-2">Subscription</a></NavLink></li>
 
 
                 {
