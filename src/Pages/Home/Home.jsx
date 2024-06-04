@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner";
 import Feedback from "../../components/Feedback/Feedback";
+import Support from "../../components/Support/Support";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Feedback></Feedback>
+      <Support></Support>
     </div>
   );
 };
