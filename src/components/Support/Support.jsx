@@ -17,9 +17,9 @@ const Support = () => {
 
       {/* social things added */}
       <div className="flex flex-col lg:flex-row items-center justify-evenly mt-14 text-7xl text-[#54ADF8]">
-        <TfiWorld />
-        <GiNewspaper />
-        <HiOutlineMailOpen />
+        <TfiWorld className="hover:animate-bounce" />
+        <GiNewspaper className="hover:animate-spin" />
+        <HiOutlineMailOpen className="hover:animate-pulse" />
       </div>
 
     </div>
