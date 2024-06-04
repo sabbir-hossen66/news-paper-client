@@ -16,10 +16,19 @@ const Support = () => {
       <p className="text-center text-gray-500 font-sans my-4 text-xl">A newspaper company thrives not only on the quality of its journalism but also on the robust support <br /> system it provides to its readers, employees,and the community.This support manifests <br /> in various forms,from exceptional customer service. </p>
 
       {/* social things added */}
-      <div className="flex flex-col lg:flex-row items-center justify-evenly mt-14 text-7xl text-[#54ADF8]">
-        <TfiWorld className="hover:animate-bounce" />
-        <GiNewspaper className="hover:animate-spin" />
-        <HiOutlineMailOpen className="hover:animate-pulse" />
+      <div className="flex flex-col lg:flex-row items-center justify-evenly mt-14">
+        <div className="flex flex-col items-center">
+          <TfiWorld className="hover:animate-bounce text-[#54ADF8] text-7xl" />
+          <h3 className="text-2xl font-semibold mt-6">Community</h3>
+        </div>
+        <div className="flex flex-col items-center">
+          <GiNewspaper className="hover:animate-spin text-[#54ADF8] text-7xl" />
+          <h3 className="text-2xl font-semibold mt-6">Documentation</h3>
+        </div>
+        <div className="flex flex-col items-center">
+          <HiOutlineMailOpen className="hover:animate-pulse text-[#54ADF8] text-7xl" />
+          <h3 className="text-2xl font-semibold mt-6">Email Us</h3>
+        </div>
       </div>
 
     </div>
