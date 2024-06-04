@@ -53,7 +53,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-4xl  text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                  <button className="px-6 py-3 text-white bg-[#268EF6] rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
@@ -72,7 +72,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-7xl text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 font-bold">
+                  <button className="px-6 py-3 text-white bg-[#268EF6]  rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 font-bold">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300 font-bold">
@@ -91,7 +91,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-7xl text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                  <button className="px-6 py-3 text-white bg-[#268EF6]  rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
@@ -110,7 +110,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-7xl text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                  <button className="px-6 py-3 text-white bg-[#268EF6]  rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
@@ -129,7 +129,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-7xl text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                  <button className="px-6 py-3 text-white bg-[#268EF6]  rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
@@ -148,7 +148,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-7xl text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                  <button className="px-6 py-3 text-white bg-[#268EF6]  rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
@@ -167,7 +167,7 @@ const Banner = () => {
               <h2 className='text-4xl lg:text-7xl text-white text-center mt-[480px]'>Todays HighLight <br /> <span className='pt-4'>All News</span></h2>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="space-x-4">
-                  <button className="px-6 py-3 text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+                  <button className="px-6 py-3 text-white bg-[#268EF6]  rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
                     See All Articles
                   </button>
                   <button className="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition duration-300">
