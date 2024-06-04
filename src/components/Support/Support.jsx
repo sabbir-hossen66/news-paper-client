@@ -1,4 +1,6 @@
-
+import { TfiWorld } from "react-icons/tfi";
+import { GiNewspaper } from "react-icons/gi";
+import { HiOutlineMailOpen } from "react-icons/hi";
 
 const Support = () => {
   return (
@@ -11,9 +13,14 @@ const Support = () => {
         </div>
       </div>
 
-      <p className="text-center text-gray-500 font-sans mt-4 text-xl">A newspaper company thrives not only on the quality of its journalism but also on the robust support <br /> system it provides to its readers, employees,and the community.This support manifests <br /> in various forms,from exceptional customer service. </p>
+      <p className="text-center text-gray-500 font-sans my-4 text-xl">A newspaper company thrives not only on the quality of its journalism but also on the robust support <br /> system it provides to its readers, employees,and the community.This support manifests <br /> in various forms,from exceptional customer service. </p>
 
       {/* social things added */}
+      <div className="flex flex-col lg:flex-row items-center justify-evenly mt-14 text-7xl text-[#54ADF8]">
+        <TfiWorld />
+        <GiNewspaper />
+        <HiOutlineMailOpen />
+      </div>
 
     </div>
   );
