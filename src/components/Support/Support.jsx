@@ -18,16 +18,28 @@ const Support = () => {
       {/* social things added */}
       <div className="flex flex-col lg:flex-row items-center justify-evenly mt-14">
         <div className="flex flex-col items-center">
-          <TfiWorld className="hover:animate-bounce text-[#54ADF8] text-7xl" />
+          <TfiWorld className="hover:animate-bounce text-[#54ADF8] text-7xl cursor-pointer" />
           <h3 className="text-2xl font-semibold mt-6">Community</h3>
+          <p className="w-96 text-center mt-6 text-gray-500">Newspaper communities represent a unique and vibrant ecosystem within the broader media landscape. </p>
+          <div>
+            <h4 className="text-center mt-8 uppercase text-xs">Join Now</h4>
+          </div>
         </div>
         <div className="flex flex-col items-center">
-          <GiNewspaper className="hover:animate-spin text-[#54ADF8] text-7xl" />
+          <GiNewspaper className="hover:animate-spin text-[#54ADF8] text-7xl cursor-pointer" />
           <h3 className="text-2xl font-semibold mt-6">Documentation</h3>
+          <p className="w-96 text-center mt-6 text-gray-500">Documentation in a newspaper context refers to the systematic process of creating, managing, and maintaining.</p>
+          <div>
+            <h4 className="text-center mt-8 uppercase text-xs">Join Now</h4>
+          </div>
         </div>
         <div className="flex flex-col items-center">
-          <HiOutlineMailOpen className="hover:animate-pulse text-[#54ADF8] text-7xl" />
+          <HiOutlineMailOpen className="hover:animate-pulse text-[#54ADF8] text-7xl cursor-pointer" />
           <h3 className="text-2xl font-semibold mt-6">Email Us</h3>
+          <p className="w-96 text-center mt-6 text-gray-500">Emails are essential for internal communication among newspaper staff. Journalists, editors, designers use email </p>
+          <div>
+            <h4 className="text-center mt-8 uppercase text-xs">Join Now</h4>
+          </div>
         </div>
       </div>
 
