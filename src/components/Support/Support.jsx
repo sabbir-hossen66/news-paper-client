@@ -76,7 +76,7 @@ const Support = () => {
 
 
         </div>
-        <p className="text-gray-500 text-md mt-2">Not a customer yet? Start today, and you will understand why so many awesome people love Newspaper Theme.</p>
+        <p className="text-gray-500 text-md mt-2">Not a customer yet? Start today, and you will understand why so many awesome people love our Newspaper.</p>
       </div>
     </div>
   );
