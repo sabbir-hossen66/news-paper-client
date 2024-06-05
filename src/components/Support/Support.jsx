@@ -1,6 +1,8 @@
 import { TfiWorld } from "react-icons/tfi";
 import { GiNewspaper } from "react-icons/gi";
 import { HiOutlineMailOpen } from "react-icons/hi";
+import { RiArrowRightSLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Support = () => {
   return (
@@ -21,25 +23,35 @@ const Support = () => {
           <TfiWorld className="hover:animate-bounce text-[#54ADF8] text-7xl cursor-pointer" />
           <h3 className="text-2xl font-semibold mt-6">Community</h3>
           <p className="w-96 text-center mt-6 text-gray-500">Newspaper communities represent a unique and vibrant ecosystem within the broader media landscape. </p>
-          <div>
-            <h4 className="text-center mt-8 uppercase text-xs">Join Now</h4>
-          </div>
+          <Link to={'https://www.facebook.com/sabbir.ms2000'}>
+            <div className="flex justify-center items-center hover:animate-pulse hover:text-[#54ADF8] cursor-pointer">
+              <h4 className=" mt-8 uppercase text-xs">Join Now</h4>
+              <div className="mt-8">  <RiArrowRightSLine /></div>
+            </div>
+          </Link>
         </div>
         <div className="flex flex-col items-center">
           <GiNewspaper className="hover:animate-spin text-[#54ADF8] text-7xl cursor-pointer" />
           <h3 className="text-2xl font-semibold mt-6">Documentation</h3>
           <p className="w-96 text-center mt-6 text-gray-500">Documentation in a newspaper context refers to the systematic process of creating, managing, and maintaining.</p>
-          <div>
-            <h4 className="text-center mt-8 uppercase text-xs">Join Now</h4>
-          </div>
+          <Link to={'https://www.facebook.com/sabbir.ms2000'}>
+            <div className="flex justify-center items-center hover:animate-pulse hover:text-[#54ADF8] cursor-pointer">
+              <h4 className="mt-8 uppercase text-xs ">Join Now</h4>
+              <div className="mt-8">  <RiArrowRightSLine /></div>
+            </div>
+          </Link>
         </div>
         <div className="flex flex-col items-center">
           <HiOutlineMailOpen className="hover:animate-pulse text-[#54ADF8] text-7xl cursor-pointer" />
           <h3 className="text-2xl font-semibold mt-6">Email Us</h3>
           <p className="w-96 text-center mt-6 text-gray-500">Emails are essential for internal communication among newspaper staff. Journalists, editors, designers use email </p>
-          <div>
-            <h4 className="text-center mt-8 uppercase text-xs">Join Now</h4>
-          </div>
+
+          <Link to={'https://www.linkedin.com/in/sabbir-hossen66/'}>
+            <div className="flex justify-center items-center hover:animate-pulse hover:text-[#54ADF8] cursor-pointer">
+              <h4 className=" mt-8 uppercase text-xs">Join Now</h4>
+              <div className="mt-8">  <RiArrowRightSLine /></div>
+            </div>
+          </Link>
         </div>
       </div>
 
