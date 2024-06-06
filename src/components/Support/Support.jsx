@@ -38,7 +38,7 @@ const Support = () => {
             <p className="w-96 text-center mt-6 text-gray-500">Documentation in a newspaper context refers to the systematic process of creating, managing, and maintaining.</p>
             <Link to={'https://www.facebook.com/sabbir.ms2000'}>
               <div className="flex justify-center items-center hover:animate-pulse hover:text-[#54ADF8] cursor-pointer">
-                <h4 className="mt-8 uppercase text-xs ">Join Now</h4>
+                <h4 className="mt-8 uppercase text-xs ">Read More</h4>
                 <div className="mt-8">  <RiArrowRightSLine /></div>
               </div>
             </Link>
@@ -60,14 +60,14 @@ const Support = () => {
       </div>
 
       {/* shadow card */}
-      <div className="p-16 mb-16 w-2/3 mx-auto -mt-24 shadow-xl bg-[#FFFFFF]">
-        <div className="flex items-center gap-4">
+      <div className="p-4 lg:p-16 mb-16 w-2/3 mx-auto -mt-24 shadow-xl bg-[#FFFFFF]">
+        <div className="flex flex-col justify-center lg:flex-row items-center gap-4">
           <div className="w-24">
             <hr className="border-t-2 border-[#28BEFF]" />
           </div>
-          <h3 className="text-center text-3xl font-semibold">Keep in mind, our updates are FREE for our Users. Enjoy!</h3>
+          <h3 className="text-center text-xl lg:text-3xl font-semibold">Keep in mind, our updates are FREE for our Users. Enjoy!</h3>
 
-          <button className="bg-gradient-to-r from-[#2784F5] to-[#28AFFC] hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 py-4 px-12 text-white rounded-sm border-none font-medium shadow-xl font-sans ml-10 hover:animate-pulse">
+          <button className="bg-gradient-to-r from-[#2784F5] to-[#28AFFC] hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 py-2 px-8 lg:py-4 lg:px-12 text-white rounded-sm border-none font-medium shadow-xl font-sans ml-10 hover:animate-pulse">
             <div className="flex justify-center items-center gap-2">
               <PiShoppingCart />
               NewsPaper
