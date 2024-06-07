@@ -2,8 +2,13 @@ import Lottie from 'lottie-react';
 import registerAnimation from '../../assets/Animation - 1717611024556.json'
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet-async';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Register = () => {
+  const { createUser, } = useContext(AuthContext)
+
   const {
     register,
     handleSubmit,
@@ -11,12 +16,24 @@ const Register = () => {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
+
+    createUser(data.email, data.password, data.name)
+      .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch(error => {
+        console.log(error.message);
+      })
   }
 
 
   return (
     <div>
+      <Helmet>
+        <title>Morning Star || Register</title>
+
+      </Helmet>
       <div className="flex flex-col lg:flex-row items-center justify-evenly min-h-screen bg-gray-100">
         <Lottie className='hover:animate-spin' animationData={registerAnimation} />
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transform transition-all duration-500 hover:scale-105">
@@ -50,12 +67,9 @@ const Register = () => {
                 <p className='text-red-500'>Password must not contain capital letters, numbers, or special characters.</p>
               )}
             </div>
-            {/* <div>
-              <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-700">Confirm Password</label>
-              <input type="password" {...register("confirm-password", { required: true })} id="confirm-password" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
-              {errors.confirm-password && <span className='text-red-500'>Please fill up this field</span>}
-            </div> */}
-            <button type="submit" className="w-full bg-[#27A3FA] text-white p-3 rounded-lg shadow-lg hover:bg-[#2784F5] focus:outline-none focus:ring-2 focus:ring-[#27A3FA] focus:ring-opacity-50 transition duration-300 ease-in-out">Register</button>
+
+            <input className="w-full cursor-pointer bg-[#27A3FA] text-white p-3 rounded-lg shadow-lg hover:bg-[#2784F5] focus:outline-none focus:ring-2 focus:ring-[#27A3FA] focus:ring-opacity-50 transition duration-300 ease-in-out" type="submit" value="Register" />
+
           </form>
           <div className="mt-6 text-center text-sm text-gray-600" >
             Already Have an Account?{' '}

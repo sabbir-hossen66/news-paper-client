@@ -5,13 +5,17 @@ import loginAnimation from '../../assets/Animation - 1717610757831.json'
 import Lottie from 'lottie-react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState('')
   const [error, setError] = useState('')
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
+
 
   const { signIn } = useContext(AuthContext)
   /* from submission functionality */
@@ -30,11 +34,11 @@ const Login = () => {
         // navigate(location?.state ? location.state : "/")
         Swal.fire({
           title: 'Success!',
-          text: 'Thank you for sign Up',
+          text: 'Login Successfully',
           icon: 'success',
           confirmButtonText: 'Cool'
         })
-        // navigate(location?.state ? location.state : "/")
+        navigate(from, { replace: true })
       })
       .catch(error => {
         const errorMessege = error.messege;
