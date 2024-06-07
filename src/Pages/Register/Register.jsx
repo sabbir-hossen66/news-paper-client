@@ -34,9 +34,20 @@ const Register = () => {
             </div>
             <div>
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-700">Password</label>
-              <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} id="password" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
+              <input type="password" {...register("password", {
+                required: true,
+                minLength: 6,
+                maxLength: 15,
+                pattern: /^[^A-Z0-9!@#$%^&*(),.?":{}|<>]*$/
+              })} id="password" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
               {errors.password?.type === "minLength" && (
                 <p className='text-red-500'>password must be 6 characters</p>
+              )}
+              {errors.password?.type === "maxLength" && (
+                <p className='text-red-500'>password must be less than 15 characters</p>
+              )}
+              {errors.password?.type === "pattern" && (
+                <p className='text-red-500'>Password must not contain capital letters, numbers, or special characters.</p>
               )}
             </div>
             {/* <div>
