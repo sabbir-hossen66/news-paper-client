@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const AllArticle = ({ article }) => {
-  const { title, image, description, tags, publisher } = article;
+  const { _id, title, image, description, tags, publisher } = article;
   // console.log(tags, publisher);
 
   return (
@@ -27,12 +28,13 @@ const AllArticle = ({ article }) => {
             Published by: {publisher ? publisher.value : 'Unknown'}
           </p>
 
+          <Link to={`/detail-article/${_id}`}>
+            <button
+              className="mt-4 px-4 py-2 bg-[#278BF6] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75" >
+              Details
+            </button>
+          </Link>
 
-          <button
-            className="mt-4 px-4 py-2 bg-[#278BF6] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
-          >
-            Details
-          </button>
         </div>
       </div>
     </div>
