@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AllArticle from "../AllArticle/AllArticle";
 
 
 const AllArticles = () => {
@@ -18,6 +19,14 @@ const AllArticles = () => {
   return (
     <div>
       <h3>All Articles is here:{articles.length}</h3>
+      <div className="grid grid-cols-1 lg:grid-cols-3   my-16">
+        {
+          articles.map(article => <AllArticle
+            key={article._id}
+            article={article}
+          ></AllArticle>)
+        }
+      </div>
     </div>
   );
 };
