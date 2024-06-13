@@ -7,7 +7,7 @@ const DetailArticle = () => {
   const { id } = useParams()
   const axiosPublic = useAxiosPublic();
 
-  const { data: detailArticle = [], isLoading, refetch } = useQuery({
+  const { data: detailArticle = [], isLoading } = useQuery({
     queryKey: ['detailArticle'],
     queryFn: async () => {
       const res = await axiosPublic.get(`/news/${id}`);
@@ -24,9 +24,9 @@ const DetailArticle = () => {
   return (
     <div>
 
-      <h2>|This is Detail Article</h2>
+      <h2 className="text-4xl text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent font-bold mt-8">|This is Article Detail Page|</h2>
       <motion.div
-        className="max-w-4xl mx-auto my-16 bg-white rounded-xl shadow-md overflow-hidden md:max-w-3xl"
+        className="max-w-sm mx-auto my-16 bg-white rounded-xl shadow-md overflow-hidden md:max-w-4xl hover:animate-bounce"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -40,17 +40,16 @@ const DetailArticle = () => {
             <div className="mt-4">
               <ul className="list-disc list-inside text-gray-600">
                 <p className="text-gray-600 text-sm">
-                  Published by: {detailArticle.publisher ? detailArticle.publisher.value : 'Unknown'}
+                  <span className="font-semibold">Published by</span>: {detailArticle.publisher ? detailArticle.publisher.value : 'Unknown'}
                 </p>
               </ul>
             </div>
             <div className="mt-4">
-              <h4 className="font-semibold text-gray-700">Tags:</h4>
               <div className="mb-4">
                 {detailArticle.tags && detailArticle.tags.length > 0 ? (
                   detailArticle.tags.map((tag, index) => (
-                    <div key={index} className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">
-                      {tag.value}
+                    <div key={index}>
+                      <span className="font-semibold text-gray-700 text-sm">Tags</span>: <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">{tag.value}</span>
                     </div>
                   ))
                 ) : (
