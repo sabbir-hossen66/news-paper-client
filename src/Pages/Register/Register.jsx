@@ -1,26 +1,41 @@
 import Lottie from 'lottie-react';
 import registerAnimation from '../../assets/Animation - 1717611024556.json'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-  const { createUser, } = useContext(AuthContext)
-
+  const { createUser, updatePRf } = useContext(AuthContext)
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm()
 
   const onSubmit = (data) => {
-
+    console.log(data);
     createUser(data.email, data.password, data.name)
       .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        updatePRf(data.name, data.photoURL)
+          .then(() => {
+            console.log('user profile updated');
+            reset();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Successfully Sign UP",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          })
+        navigate('/login')
       })
       .catch(error => {
         console.log(error.message);
@@ -43,6 +58,11 @@ const Register = () => {
               <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-700">Username</label>
               <input type="text" {...register("name", { required: true })} id="name" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
               {errors.name && <span className='text-red-500'>Please fill up this field</span>}
+            </div>
+            <div>
+              <label htmlFor="photoURl" className="block mb-2 text-sm font-medium text-gray-700">Photo URL</label>
+              <input type="text" {...register("photoURL", { required: true })} id="photoURL" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
+              {errors.photoURL && <span className='text-red-500'>Please fill up this field</span>}
             </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">Email</label>

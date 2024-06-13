@@ -6,6 +6,9 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddArticles from "../Pages/AddArticles/AddArticles";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import User from "../Pages/Dashboard/User/User";
+import AllArticles from "../Pages/AllArticles/AllArticles";
 
 export const router = createBrowserRouter([
   {
@@ -18,8 +21,12 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/add-artciles",
+        path: "/add-articles",
         element: <PrivateRoute><AddArticles></AddArticles></PrivateRoute>,
+      },
+      {
+        path: "/all-articles",
+        element: <AllArticles></AllArticles>,
       },
       {
         path: "/login",
@@ -34,4 +41,15 @@ export const router = createBrowserRouter([
     ],
 
   },
+  /* dashboard object */
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'user',
+        element: <User></User>
+      }
+    ]
+  }
 ]);

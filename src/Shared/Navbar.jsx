@@ -83,8 +83,9 @@ const Navbar = () => {
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
 
                 <li className="list-none head-section hover:animate-pulse"><NavLink to={'/'}><a className="px-3 py-2 mx-3 mt-2">Home</a></NavLink></li>
-                <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/add-artciles'}><a className="px-3 py-2 mx-3 mt-2">Add Articles</a></NavLink></li>
-                <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/a'}><a className="px-3 py-2 mx-3 mt-2">All Articles</a></NavLink></li>
+                <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/add-articles'}><a className="px-3 py-2 mx-3 mt-2">Add Articles</a></NavLink></li>
+                <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/all-articles'}><a className="px-3 py-2 mx-3 mt-2">All Articles</a></NavLink></li>
+                <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/dashboard'}><a className="px-3 py-2 mx-3 mt-2">DashBoard</a></NavLink></li>
                 <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/s'}><a className="px-3 py-2 mx-3 mt-2">Subscription</a></NavLink></li>
 
 
@@ -106,7 +107,7 @@ const Navbar = () => {
                           <img
                             alt=""
                             className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-default-600 dark:ring-offset-gray-100"
-                            src="https://source.unsplash.com/40x40/?portrait?1"
+                            src={user?.photoURL}
                           />
                         </div>
 
