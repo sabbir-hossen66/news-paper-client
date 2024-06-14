@@ -47,6 +47,12 @@ const AuthProviders = ({ children }) => {
       displayName: name,
       photoURL: photoURL
     })
+    // .then(() => {
+    //   setUser({ ...auth.currentUser, displayName: name, photoURL: photoURL })
+    // })
+    // .catch(error => {
+    //   console.error(error.message);
+    // })
   }
 
 

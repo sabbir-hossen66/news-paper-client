@@ -13,6 +13,7 @@ import DetailArticle from "../Pages/DetailArticle/DetailArticle";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import MyProfile from "../Pages/MyProfile/MyProfile";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 
 
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/my-profile",
         element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>,
+      },
+      {
+        path: "/update-profile",
+        element: <UpdateProfile></UpdateProfile>
       },
       {
         path: "/detail-article/:id",
