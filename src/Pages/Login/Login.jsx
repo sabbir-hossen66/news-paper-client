@@ -6,18 +6,23 @@ import Lottie from 'lottie-react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState('')
+  const [googleUser, setGoogleUser] = useState(null)
+  console.log(googleUser);
   const [error, setError] = useState('')
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
 
 
-  const { signIn } = useContext(AuthContext)
+  const { signIn, googleSignIn } = useContext(AuthContext)
+  const provider = new GoogleAuthProvider();
+
   /* from submission functionality */
   const handleSignIn = e => {
     e.preventDefault()
@@ -49,6 +54,28 @@ const Login = () => {
 
   }
 
+
+  // google sign in
+  const handleGoogleSign = () => {
+    // e.preventDefault();
+    googleSignIn(provider)
+      .then(result => {
+        const googleUser = result.user;
+        setGoogleUser(googleUser);
+        navigate(location?.state ? location.state : "/")
+        Swal.fire({
+          title: 'Successfully Google Login!',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+
+      })
+      .catch(error => {
+        const googleError = error.message;
+        setGoogleUser(googleError);
+      })
+  }
 
 
   /* this is for animation framer */
@@ -173,6 +200,7 @@ const Login = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <button
+                onClick={handleGoogleSign}
                 type="button"
                 className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 font-medium flex items-center justify-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#27A3FA]"
               // whileHover={{ scale: 1.05 }}
@@ -186,6 +214,7 @@ const Login = () => {
                 </svg>
                 Sign in with Google
               </button>
+
             </motion.div>
             <motion.p
               className="mt-6 text-center text-sm text-gray-600"

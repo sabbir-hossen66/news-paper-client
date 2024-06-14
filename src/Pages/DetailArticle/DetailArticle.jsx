@@ -3,22 +3,53 @@ import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { motion } from 'framer-motion';
 
+
+
+
 const DetailArticle = () => {
   const { id } = useParams()
   const axiosPublic = useAxiosPublic();
+  // const queryClient = useQueryClient();
 
-  const { data: detailArticle = [], isLoading } = useQuery({
+
+  const { data: detailArticle = [], isLoading, error } = useQuery({
     queryKey: ['detailArticle'],
     queryFn: async () => {
       const res = await axiosPublic.get(`/news/${id}`);
       return res.data;
     },
-    enabled: !!id, // Ensure the query runs only if `id` exists
+    enabled: !!id,
   });
-  console.log(detailArticle);
-  if (isLoading) {
-    return <p>setLoading</p>
-  }
+
+
+
+  /*  // Mutation to increment view count
+   const incrementViewCount = useMutation(
+     async () => {
+       await axiosPublic.put(`/news/${id}`);
+     },
+     {
+       onSuccess: () => {
+         // Invalidate the query to refetch the updated data
+         queryClient.invalidateQueries(['detailArticle', id]);
+       },
+     }
+   );
+ 
+   // Increment view count on component mount
+   useEffect(() => {
+     if (id) {
+       incrementViewCount.mutate();
+     }
+   }, [id, incrementViewCount]);
+ 
+   if (isLoading) {
+     return <div>Loading...</div>;
+   }
+ 
+   if (error) {
+     return <div>Error fetching the article: {error.message}</div>;
+   } */
 
 
   return (
@@ -26,7 +57,7 @@ const DetailArticle = () => {
 
       <h2 className="text-4xl text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent font-bold mt-8">|This is Article Detail Page|</h2>
       <motion.div
-        className="max-w-sm mx-auto my-16 bg-white rounded-xl shadow-md overflow-hidden md:max-w-4xl hover:animate-bounce"
+        className="max-w-sm mx-auto my-16 bg-white rounded-xl shadow-md overflow-hidden md:max-w-4xl"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

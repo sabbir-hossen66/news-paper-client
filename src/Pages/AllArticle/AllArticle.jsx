@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AllArticle = ({ article }) => {
   const { _id, title, image, description, tags, publisher } = article;
-  // console.log(tags, publisher);
+
 
   return (
     <div>
