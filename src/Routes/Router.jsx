@@ -10,7 +10,8 @@ import Dashboard from "../Layout/Dashboard";
 import User from "../Pages/Dashboard/User/User";
 import AllArticles from "../Pages/AllArticles/AllArticles";
 import DetailArticle from "../Pages/DetailArticle/DetailArticle";
-import AllUsers from "../Pages/AllUsers/AllUsers";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+
 
 
 export const router = createBrowserRouter([

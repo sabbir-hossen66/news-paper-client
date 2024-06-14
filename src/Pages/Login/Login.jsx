@@ -41,7 +41,8 @@ const Login = () => {
         /* users related function */
         const userInfo = {
           email: response?.email,
-          name: response?.displayName
+          name: response?.displayName,
+          photoURL: response?.photoURL
         }
         axiosPublic.post('/users', userInfo)
           .then(res => {
@@ -74,11 +75,12 @@ const Login = () => {
     googleSignIn(provider)
       .then(result => {
         const googleUser = result.user;
-
+        console.log(googleUser);
         /* users related function */
         const userInfo = {
           email: googleUser?.email,
-          name: googleUser?.displayName
+          name: googleUser?.displayName,
+          photoURL: googleUser?.photoURL
         }
         axiosPublic.post('/users', userInfo)
           .then(res => {

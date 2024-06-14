@@ -92,12 +92,6 @@ const Navbar = () => {
                 {
                   user ?
                     <>
-                      {/* <span>  {user?.displayName}</span> */}
-
-                      {/* <div>
-                        <img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-default-600 dark:ring-offset-gray-100" src="https://source.unsplash.com/40x40/?portrait?1" />
-                      </div>
-                      <button onClick={handleLogOut}>Logout</button> */}
 
                       <div className="relative inline-block text-left">
                         <div
