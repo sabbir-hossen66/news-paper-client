@@ -7,6 +7,7 @@ import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,6 +18,7 @@ const Login = () => {
   const [error, setError] = useState('')
   const navigate = useNavigate()
   const location = useLocation()
+  const axiosPublic = useAxiosPublic();
   const from = location.state?.from?.pathname || '/'
 
 
@@ -35,6 +37,17 @@ const Login = () => {
     signIn(email, password)
       .then(result => {
         const response = result.user;
+
+        /* users related function */
+        const userInfo = {
+          email: response?.email,
+          name: response?.displayName
+        }
+        axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
+          })
+
         setSuccess(response)
         // navigate(location?.state ? location.state : "/")
         Swal.fire({
@@ -61,6 +74,18 @@ const Login = () => {
     googleSignIn(provider)
       .then(result => {
         const googleUser = result.user;
+
+        /* users related function */
+        const userInfo = {
+          email: googleUser?.email,
+          name: googleUser?.displayName
+        }
+        axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
+          })
+
+
         setGoogleUser(googleUser);
         navigate(location?.state ? location.state : "/")
         Swal.fire({

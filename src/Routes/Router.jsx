@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import User from "../Pages/Dashboard/User/User";
 import AllArticles from "../Pages/AllArticles/AllArticles";
 import DetailArticle from "../Pages/DetailArticle/DetailArticle";
+import AllUsers from "../Pages/AllUsers/AllUsers";
 
 
 export const router = createBrowserRouter([
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
     path: 'dashboard',
     element: <Dashboard></Dashboard>,
     children: [
+      {
+        path: 'all-users',
+        element: <AllUsers></AllUsers>
+      },
       {
         path: 'user',
         element: <User></User>
