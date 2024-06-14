@@ -11,6 +11,8 @@ import User from "../Pages/Dashboard/User/User";
 import AllArticles from "../Pages/AllArticles/AllArticles";
 import DetailArticle from "../Pages/DetailArticle/DetailArticle";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import MyProfile from "../Pages/MyProfile/MyProfile";
 
 
 
@@ -31,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/all-articles",
         element: <AllArticles></AllArticles>,
+      },
+      {
+        path: "/my-profile",
+        element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>,
       },
       {
         path: "/detail-article/:id",
@@ -58,7 +64,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'all-users',
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: 'user',

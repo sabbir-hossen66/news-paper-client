@@ -64,8 +64,6 @@ const Login = () => {
 
         setError(errorMessege)
       })
-
-
   }
 
 
@@ -86,16 +84,15 @@ const Login = () => {
           .then(res => {
             console.log(res.data);
           })
-
-
         setGoogleUser(googleUser);
-        navigate(location?.state ? location.state : "/")
+
         Swal.fire({
           title: 'Successfully Google Login!',
           text: 'Do you want to continue',
           icon: 'success',
-          confirmButtonText: 'Cool'
+          confirmButtonText: 'cool'
         })
+        navigate(location?.state ? location.state : "/")
 
       })
       .catch(error => {
