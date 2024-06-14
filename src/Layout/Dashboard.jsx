@@ -4,13 +4,14 @@ import { MdOutlineArticle } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { SiGradleplaypublisher } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // TODO: IS ADMIN VALUE FROM THE DATABASE
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
 
