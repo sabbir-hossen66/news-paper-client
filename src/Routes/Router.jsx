@@ -7,17 +7,16 @@ import Register from "../Pages/Register/Register";
 import AddArticles from "../Pages/AddArticles/AddArticles";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
-import User from "../Pages/Dashboard/User/User";
 import AllArticles from "../Pages/AllArticles/AllArticles";
 import DetailArticle from "../Pages/DetailArticle/DetailArticle";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-// import AdminRoute from "./AdminRoute";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import SubsCription from "../Pages/SubsCription/SubsCription";
 import Payment from "../Pages/Payment/Payment";
 import PremiumArticle from "../Pages/PremiumArticle/PremiumArticle";
 import AdminRoute from "./AdminRoute";
+import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 
 
 
@@ -89,8 +88,8 @@ export const router = createBrowserRouter([
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
-        path: 'user',
-        element: <User></User>
+        path: 'add-publisher',
+        element: <AdminRoute><AddPublisher></AddPublisher></AdminRoute>
       }
     ]
   }

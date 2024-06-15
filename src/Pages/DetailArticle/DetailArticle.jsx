@@ -9,10 +9,8 @@ import { motion } from 'framer-motion';
 const DetailArticle = () => {
   const { id } = useParams()
   const axiosPublic = useAxiosPublic();
-  // const queryClient = useQueryClient();
 
-
-  const { data: detailArticle = [], isLoading, error } = useQuery({
+  const { data: detailArticle = [] } = useQuery({
     queryKey: ['detailArticle'],
     queryFn: async () => {
       const res = await axiosPublic.get(`/news/${id}`);
@@ -20,37 +18,6 @@ const DetailArticle = () => {
     },
     enabled: !!id,
   });
-
-
-
-  /*  // Mutation to increment view count
-   const incrementViewCount = useMutation(
-     async () => {
-       await axiosPublic.put(`/news/${id}`);
-     },
-     {
-       onSuccess: () => {
-         // Invalidate the query to refetch the updated data
-         queryClient.invalidateQueries(['detailArticle', id]);
-       },
-     }
-   );
- 
-   // Increment view count on component mount
-   useEffect(() => {
-     if (id) {
-       incrementViewCount.mutate();
-     }
-   }, [id, incrementViewCount]);
- 
-   if (isLoading) {
-     return <div>Loading...</div>;
-   }
- 
-   if (error) {
-     return <div>Error fetching the article: {error.message}</div>;
-   } */
-
 
   return (
     <div>

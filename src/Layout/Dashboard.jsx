@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaUsersLine } from "react-icons/fa6";
+import { IoHome } from "react-icons/io5";
 import { MdOutlineArticle } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { SiGradleplaypublisher } from "react-icons/si";
@@ -44,25 +45,13 @@ const Dashboard = () => {
               </a>
             </li>
 
+
             <li className="rounded-sm">
               <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                 <SiGradleplaypublisher />
-                <span className="lg:text-lg font-semibold">Add Publisher</span>
+                <NavLink to={'/dashboard/add-publisher'}><span className="lg:text-lg font-semibold">Add Publisher</span></NavLink>
               </a>
             </li>
-
-
-
-            <li className="rounded-sm">
-              <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-600">
-                  <path d="M256,0C114.613,0,0,114.615,0,256s114.613,256,256,256,256-114.615,256-256S397.387,0,256,0Zm0,480C132.288,480,32,379.712,32,256S132.288,32,256,32,480,132.288,480,256,379.712,480,256,480Zm64-368H192a16,16,0,0,0-16,16V192a16,16,0,0,0,16,16H192v96H176a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16H336a16,16,0,0,0,16-16V320a16,16,0,0,0-16-16H336V208h16a16,16,0,0,0,16-16V128A16,16,0,0,0,336,112ZM304,176H272v80H240V176H208V144H304Z"></path>
-                </svg>
-                <span className="lg:text-lg font-semibold">Reports</span>
-              </a>
-            </li>
-
-
 
 
             {/* divider is here */}
@@ -73,14 +62,15 @@ const Dashboard = () => {
             </div>
 
             {/* shared NavLinks is below */}
+
             <li className="rounded-sm">
               <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-600">
-                  <path d="M256,0C114.613,0,0,114.615,0,256s114.613,256,256,256,256-114.615,256-256S397.387,0,256,0Zm0,480C132.288,480,32,379.712,32,256S132.288,32,256,32,480,132.288,480,256,379.712,480,256,480Zm64-368H192a16,16,0,0,0-16,16V192a16,16,0,0,0,16,16H192v96H176a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16H336a16,16,0,0,0,16-16V320a16,16,0,0,0-16-16H336V208h16a16,16,0,0,0,16-16V128A16,16,0,0,0,336,112ZM304,176H272v80H240V176H208V144H304Z"></path>
-                </svg>
-                <span className="lg:text-lg font-semibold">Reports</span>
+                <IoHome />
+                <NavLink to={'/'}><span className="lg:text-lg font-semibold">Home</span></NavLink>
               </a>
             </li>
+
+
           </ul>
         </div>
       </div>

@@ -19,7 +19,6 @@ const AllArticles = () => {
   }, [loading])
 
 
-
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
   const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);

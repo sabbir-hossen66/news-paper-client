@@ -36,9 +36,6 @@ const CheckOutForm = () => {
     }
     setLoading(false);
 
-
-
-
   }
 
   return (
