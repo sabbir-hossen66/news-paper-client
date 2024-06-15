@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const UpdateProfile = () => {
   const { user, updatePRf } = useContext(AuthContext)
@@ -9,9 +10,9 @@ const UpdateProfile = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    displayName: user.displayName || '',
-    email: user.email || '',
-    photoURL: user.photoURL || '',
+    displayName: user?.displayName || '',
+    email: user?.email || '',
+    photoURL: user?.photoURL || '',
   });
 
   const [error, setError] = useState('');
@@ -25,6 +26,14 @@ const UpdateProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Profile is Updated",
+      showConfirmButton: false,
+      timer: 1500
+    });
 
     if (!formData.displayName.trim()) {
       setError('Display name is required');
@@ -44,7 +53,9 @@ const UpdateProfile = () => {
     try {
       await updateProfile(user, {
         displayName: formData.displayName,
+        email: formData.email,
         photoURL: formData.photoURL,
+
       });
 
       setError('');
@@ -53,6 +64,9 @@ const UpdateProfile = () => {
       setError('Error updating profile');
       console.error('Error updating profile:', error);
     }
+
+
+
   };
 
   const validateEmail = (email) => {
@@ -105,6 +119,7 @@ const UpdateProfile = () => {
               className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
+
           <div className="text-center">
             <button
               type="submit"

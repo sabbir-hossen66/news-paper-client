@@ -12,8 +12,6 @@ const MyProfile = () => {
   return (
     <div className="my-16">
       <h2 className="text-4xl font-semibold text-[#54ADF8] text-center my-8">Welcome to My Profile</h2>
-
-
       <div className="flex justify-center items-center h-48 sm:h-56 md:h-64 lg:h-72 p-4">
         <Lottie className='hover:animate-spin w-32 text-center' animationData={profile} />
       </div>
