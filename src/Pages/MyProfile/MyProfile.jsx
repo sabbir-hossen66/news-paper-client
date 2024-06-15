@@ -16,8 +16,8 @@ const MyProfile = () => {
         <Lottie className='hover:animate-spin w-32 text-center' animationData={profile} />
       </div>
       <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
-        <div className="bg-cover bg-center h-48 sm:h-56 md:h-64 lg:h-72 p-4 flex justify-center items-center">
-          <img className="rounded-full border-4 border-white w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36" src={user?.photoURL} alt="Profile" />
+        <div className="bg-cover  bg-center h-48 sm:h-56 md:h-64 lg:h-72 p-4 flex justify-center items-center">
+          <img className="rounded-full  border-4 border-white w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36" src={user?.photoURL} alt="Profile" />
         </div>
         <div className="p-4 sm:p-6">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">{user?.displayName}</h1>
@@ -41,5 +41,3 @@ const MyProfile = () => {
 };
 
 export default MyProfile;
-
-//  <p className="text-gray-600">{user.metadata.creationTime}</p >

@@ -84,9 +84,9 @@ const UpdateProfile = () => {
 
   return (
     <div>
-      <h2>update</h2>
+
       <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden p-6 my-6">
-        <h1 className="text-2xl font-bold mb-4 text-center">Update Profile</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center text-[#54ADF8]">Update Profile</h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

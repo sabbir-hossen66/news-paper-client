@@ -14,6 +14,8 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import SubsCription from "../Pages/SubsCription/SubsCription";
+import Payment from "../Pages/Payment/Payment";
 
 
 
@@ -42,6 +44,14 @@ export const router = createBrowserRouter([
       {
         path: "/update-profile",
         element: <UpdateProfile></UpdateProfile>
+      },
+      {
+        path: "/subscription",
+        element: <PrivateRoute><SubsCription></SubsCription></PrivateRoute>
+      },
+      {
+        path: '/payment',
+        element: <Payment></Payment>
       },
       {
         path: "/detail-article/:id",

@@ -68,8 +68,8 @@ const Login = () => {
 
 
   // google sign in
-  const handleGoogleSign = () => {
-    // e.preventDefault();
+  const handleGoogleSign = (e) => {
+    e.preventDefault();
     googleSignIn(provider)
       .then(result => {
         const googleUser = result.user;
