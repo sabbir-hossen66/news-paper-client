@@ -17,6 +17,7 @@ import Payment from "../Pages/Payment/Payment";
 import PremiumArticle from "../Pages/PremiumArticle/PremiumArticle";
 import AdminRoute from "./AdminRoute";
 import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
+import AdminAllArticles from "../Pages/Dashboard/AdminAllArticles/AdminAllArticles";
 
 
 
@@ -90,6 +91,10 @@ export const router = createBrowserRouter([
       {
         path: 'add-publisher',
         element: <AdminRoute><AddPublisher></AddPublisher></AdminRoute>
+      },
+      {
+        path: 'addminAllArticles',
+        element: <AdminRoute><AdminAllArticles></AdminAllArticles></AdminRoute>
       }
     ]
   }

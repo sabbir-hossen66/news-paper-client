@@ -41,7 +41,7 @@ const Dashboard = () => {
             <li className="rounded-sm">
               <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                 <MdOutlineArticle />
-                <span className="lg:text-lg font-semibold">All Article</span>
+                <NavLink to={'/dashboard/addminAllArticles'}> <span className="lg:text-lg font-semibold">All Article</span></NavLink>
               </a>
             </li>
 
