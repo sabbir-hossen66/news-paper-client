@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
@@ -49,6 +49,7 @@ const SubsCription = () => {
       console.error("Error processing payment: ", error);
     }
   };
+  
 
 
   return (
@@ -76,12 +77,14 @@ const SubsCription = () => {
           <option value="5 days">5 Days</option>
           <option value="10 days">10 Days</option>
         </select>
-        <button
-          onClick={handleSubscriptionSubmit}
-          className="bg-blue-500 text-white px-8 py-2 rounded-md shadow-lg transition transform hover:bg-blue-600 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
-        >
-          Subscribe
-        </button>
+        <Link to={'/payment'}>
+          <button
+            onClick={handleSubscriptionSubmit}
+            className="bg-blue-500 text-white px-8 py-2 rounded-md shadow-lg transition transform hover:bg-blue-600 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+          >
+            Subscribe
+          </button>
+        </Link>
       </div>
     </div>
   );

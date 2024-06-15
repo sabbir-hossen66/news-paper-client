@@ -88,6 +88,18 @@ const DetailArticle = () => {
                 )}
               </div>
             </div>
+            <div>
+              <p className="mt-2 text-gray-500">Status: {detailArticle.status}</p>
+              <p className="mt-2 text-gray-500">Views:{detailArticle.views}</p>
+              <p className="mt-2 text-gray-500">isPremium: {detailArticle.isPremium}</p>
+            </div>
+
+            <div className="mt-6">
+              <img className="rounded-full" src={detailArticle.authorPhoto} alt="" />
+              <p className="mt-2 text-gray-500">{detailArticle.authorName}</p>
+              <p className="mt-2 text-gray-500">{detailArticle.authorEmail}</p>
+              <p className="mt-2 text-gray-500">{detailArticle.postedDate}</p>
+            </div>
           </div>
         </div>
       </motion.div>

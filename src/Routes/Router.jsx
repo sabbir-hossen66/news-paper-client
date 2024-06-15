@@ -11,11 +11,13 @@ import User from "../Pages/Dashboard/User/User";
 import AllArticles from "../Pages/AllArticles/AllArticles";
 import DetailArticle from "../Pages/DetailArticle/DetailArticle";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-import AdminRoute from "./AdminRoute";
+// import AdminRoute from "./AdminRoute";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import SubsCription from "../Pages/SubsCription/SubsCription";
 import Payment from "../Pages/Payment/Payment";
+import PremiumArticle from "../Pages/PremiumArticle/PremiumArticle";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -50,6 +52,10 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><SubsCription></SubsCription></PrivateRoute>
       },
       {
+        path: "/premium-article",
+        element: <PrivateRoute><PremiumArticle></PremiumArticle></PrivateRoute>
+      },
+      {
         path: '/payment',
         element: <Payment></Payment>
       },
@@ -78,6 +84,7 @@ export const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     children: [
       {
+        // TODO:ADMIN ROUTE
         path: 'all-users',
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },

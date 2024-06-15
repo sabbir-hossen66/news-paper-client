@@ -4,6 +4,8 @@ import Select from 'react-select';
 import { Controller, useForm } from 'react-hook-form';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 
 const publishers = [
@@ -30,6 +32,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 
 const AddArticles = () => {
+  const { user } = useContext(AuthContext)
 
   const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
   const axiosPublic = useAxiosPublic();
@@ -50,7 +53,14 @@ const AddArticles = () => {
         publisher: data.publisher,
         title: data.title,
         tags: data.tags,
-        image: res.data.data.display_url
+        image: res.data.data.display_url,
+        authorName: user?.displayName,
+        status: 'pending',
+        views: 0,
+        authorPhoto: user.photoURL,
+        isPremium: "no",
+        postedDate: new Date(),
+        authorEmail: user?.email
 
       }
       // when create adminsceure then implement axiosScure

@@ -16,7 +16,7 @@ const AllUsers = () => {
       return res.data
     }
   })
-
+  console.log(users);
 
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user._id}`)
