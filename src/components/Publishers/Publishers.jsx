@@ -21,7 +21,7 @@ const Publishers = () => {
         <div className="container mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
           {publishers.map((publisher, index) => (
 
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div key={index} className="hover:animate-bounce bg-white rounded-lg shadow-lg overflow-hidden">
 
               <img className="w-full h-48 object-cover" src={publisher.image} alt={publisher.publisher} />
               <div className="p-4">
