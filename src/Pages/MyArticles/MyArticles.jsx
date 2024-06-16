@@ -28,37 +28,21 @@ const MyArticles = () => {
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
             <tr>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Title
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Author
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Email
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Photo
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Posted Date
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Status
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Publisher
-              </th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-xs lg:text-sm text-blue-500 tracking-wider">
-                Actions
-              </th>
+
+              <th className="px-4 py-2 border-b-2 border-gray-300">#</th>
+              <th className="px-4 py-2 border-b-2 border-gray-300">Title</th>
+              <th className="px-4 py-2 border-b-2 border-gray-300">Details</th>
+              <th className="px-4 py-2 border-b-2 border-gray-300">Status</th>
+              <th className="px-4 py-2 border-b-2 border-gray-300">Premium</th>
+              <th className="px-4 py-2 border-b-2 border-gray-300">Actions</th>
             </tr>
           </thead>
 
           <tbody>
             {
-              myArticles.map(myArticle => <MyAllArticle
+              myArticles.map((myArticle, index) => <MyAllArticle
                 key={myArticle._id}
+                index={index}
                 myArticle={myArticle}
                 refetch={refetch}
                 axiosScure={axiosScure}
