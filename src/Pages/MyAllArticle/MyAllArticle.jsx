@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -13,13 +13,11 @@ const MyAllArticle = ({ myArticle, refetch, axiosScure, index }) => {
   const navigate = useNavigate();
 
   const handleDelete = articleId => {
-
     // await axiosScure.delete(`/myArticle/${articleId}`);
     // setArticles(articles.filter(article => article._id !== articleId));
-
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "Are You Sure To Delete This Item",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -46,7 +44,8 @@ const MyAllArticle = ({ myArticle, refetch, axiosScure, index }) => {
   };
 
   const handleUpdate = (articleId) => {
-    navigate(`/update-article/${articleId}`);
+    console.log(articleId);
+    // navigate(`/update-article/${articleId}`);
   };
 
   const handleViewDetails = (articleId) => {
@@ -84,12 +83,15 @@ const MyAllArticle = ({ myArticle, refetch, axiosScure, index }) => {
         </td>
         <td className="px-4 py-2 border-b border-gray-300">{myArticle.isPremium ? 'Yes' : 'No'}</td>
         <td className="px-4 py-2 border-b border-gray-300">
-          <button
-            className="bg-green-500 text-white px-2 py-1 rounded mr-2"
-            onClick={() => handleUpdate(myArticle._id)}
-          >
-            Update
-          </button>
+
+          <Link to={`/update-myArticle/${myArticle._id}`}>
+            <button
+              className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+              onClick={() => handleUpdate(myArticle._id)}>
+              Update
+            </button>
+          </Link>
+
           <button
             className="bg-red-500 text-white px-2 py-1 rounded"
             onClick={() => handleDelete(myArticle._id)}

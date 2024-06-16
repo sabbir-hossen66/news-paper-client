@@ -20,6 +20,8 @@ import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 import AdminAllArticles from "../Pages/Dashboard/AdminAllArticles/AdminAllArticles";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import MyArticles from "../Pages/MyArticles/MyArticles";
+import UpdateMyArticle from "../Pages/UpdateMyArticle/UpdateMyArticle";
+import ModalPage from "../components/ModalPage/ModalPage";
 
 
 
@@ -33,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: '/',
+        element: <ModalPage></ModalPage>
       },
       {
         path: "/add-articles",
@@ -69,8 +75,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-articles",
-        element: <MyArticles></MyArticles>,
+        element: <PrivateRoute><MyArticles></MyArticles></PrivateRoute>,
 
+      },
+      {
+        path: '/update-myArticle/:id',
+        element: <PrivateRoute><UpdateMyArticle></UpdateMyArticle></PrivateRoute>
       },
 
       {
