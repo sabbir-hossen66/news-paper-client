@@ -88,21 +88,37 @@ const AdminAllArticles = () => {
       });
   };
 
-  const handleDelete = (articleId) => {
-    axiosSecure.delete(`/articles/${articleId}`)
-      .then(res => {
-        if (res.data.deletedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Article Deleted',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      });
+  const handleDelete = articleId => {
+    // await axiosScure.delete(`/myArticle/${articleId}`);
+    // setArticles(articles.filter(article => article._id !== articleId));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Are You Sure To Delete This Item",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        axiosSecure.delete(`/myArticle/${articleId}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          })
+      }
+    });
+
+
   };
+
   return (
     <div>
       <h2 className="text-3xl font-semibold mb-4">All Articles</h2>

@@ -20,7 +20,7 @@ const ModalPage = () => {
   };
 
   const handleSubscribe = () => {
-    navigate('/subscribe');
+    navigate('/subscription');
   };
   return (
     <div className=" items-center justify-center bg-gray-100">
