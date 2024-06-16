@@ -15,6 +15,27 @@ const AdminAllArticles = () => {
     }
   });
 
+  // ------------------------------------------------------------------------------
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(4);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(articles.length / usersPerPage);
+
+  // Get current users
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = articles.slice(indexOfFirstUser, indexOfLastUser);
+
+
+  const handleClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  // -------------------------------------------------------------------------------------
+
+
+
   const [modalArticle, setModalArticle] = useState(null);
   const [declineReason, setDeclineReason] = useState('');
 
@@ -86,7 +107,7 @@ const AdminAllArticles = () => {
     <div>
       <h2 className="text-3xl font-semibold mb-4">All Articles</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {articles.map((article) => (
+        {currentUsers.map((article) => (
           <div key={article._id} className="bg-white rounded-lg shadow-lg p-4 transform hover:-translate-y-2 transition duration-300" style={{ border: '1px solid transparent', borderRadius: '8px', backgroundImage: 'linear-gradient(white, white), radial-gradient(circle at top left, #f00, #0f0, #00f)', display: 'flex', flexDirection: 'column' }}>
             <img src={article.image} alt="Author" className="w-full h-48 object-cover rounded-md mb-4" />
             <div className="flex-grow">
@@ -155,6 +176,27 @@ const AdminAllArticles = () => {
           </div>
         </div>
       )}
+
+      {/* pagination here */}
+      <div className="flex justify-center mt-6 mb-16">
+        <nav>
+          <ul className="inline-flex items-center -space-x-px">
+            {[...Array(totalPages).keys()].map(pageNumber => (
+              <li key={pageNumber} className="page-item">
+                <button
+                  onClick={() => handleClick(pageNumber + 1)}
+                  className={`px-3 py-2 leading-tight ${currentPage === pageNumber + 1 ? 'bg-blue-500 text-white' : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-gray-700'} transition-colors duration-150`}
+                >
+                  {pageNumber + 1}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      {/* ------------------------------------ */}
+
     </div>
   );
 };
