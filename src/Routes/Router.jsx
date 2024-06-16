@@ -18,6 +18,8 @@ import PremiumArticle from "../Pages/PremiumArticle/PremiumArticle";
 import AdminRoute from "./AdminRoute";
 import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 import AdminAllArticles from "../Pages/Dashboard/AdminAllArticles/AdminAllArticles";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import MyArticles from "../Pages/MyArticles/MyArticles";
 
 
 
@@ -64,6 +66,11 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><DetailArticle></DetailArticle></PrivateRoute>,
 
       },
+      {
+        path: "/my-articles",
+        element: <MyArticles></MyArticles>,
+
+      },
 
       {
         path: "/login",
@@ -83,6 +90,12 @@ export const router = createBrowserRouter([
     path: 'dashboard',
     element: <Dashboard></Dashboard>,
     children: [
+      {
+
+        index: true,
+        element: <DashboardHome></DashboardHome>,
+
+      },
       {
         // TODO:ADMIN ROUTE
         path: 'all-users',

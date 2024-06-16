@@ -9,7 +9,8 @@ const AdminAllArticles = () => {
   const { data: articles = [], refetch } = useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/users');
+      const res = await axiosSecure.get('/news');
+      console.log(res.data);
       return res.data;
     }
   });
@@ -84,16 +85,17 @@ const AdminAllArticles = () => {
   return (
     <div>
       <h2 className="text-3xl font-semibold mb-4">All Articles</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {articles.map((article) => (
-          <div key={article._id} className="bg-white rounded-lg shadow-lg p-4 transform hover:-translate-y-2 transition duration-300">
-            <img src={article.authorPhoto} alt="Author" className="w-16 h-16 rounded-full mx-auto mb-4" />
-            <h3 className="text-xl font-semibold">{article.title}</h3>
-            <p className="text-gray-600 mb-2">By: {article.authorName}</p>
-            <p className="text-gray-600 mb-2">Email: {article.authorEmail}</p>
-            <p className="text-gray-600 mb-2">Posted on: {new Date(article.postedDate).toLocaleDateString()}</p>
-            <p className="text-gray-600 mb-2">Publisher: {article.publisher}</p>
-            <p className={`text-gray-600 mb-2 ${article.status === 'declined' ? 'text-red-500' : ''}`}>Status: {article.status}</p>
+          <div key={article._id} className="bg-white rounded-lg shadow-lg p-4 transform hover:-translate-y-2 transition duration-300" style={{ border: '1px solid transparent', borderRadius: '8px', backgroundImage: 'linear-gradient(white, white), radial-gradient(circle at top left, #f00, #0f0, #00f)', display: 'flex', flexDirection: 'column' }}>
+            <img src={article.image} alt="Author" className="w-full h-48 object-cover rounded-md mb-4" />
+            <div className="flex-grow">
+              <h3 className="text-xl font-semibold">{article.title}</h3>
+              <p className="text-gray-600 mb-2">By: {article.authorName}</p>
+              <p className="text-gray-600 mb-2">Email: {article.authorEmail}</p>
+              <p className="text-gray-600 mb-2">Posted on: {new Date(article.postedDate).toLocaleDateString()}</p>
+              <p className={`text-gray-600 mb-2 ${article.status === 'declined' ? 'text-red-500' : ''}`}>Status: {article.status}</p>
+            </div>
             <div className="flex justify-between mt-4">
               <button
                 onClick={() => handleApprove(article._id)}

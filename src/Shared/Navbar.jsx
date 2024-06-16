@@ -221,6 +221,7 @@ const Navbar = () => {
 
                       <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/subscription'}><span className="px-2 py-2 mx-3 mt-2">Subscription</span></NavLink></li>
                       <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/premium-article'}><span className="px-2 py-2 mx-3 mt-2">PremiumArticle</span></NavLink></li>
+                      <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/my-articles'}><span className="px-2 py-2 mx-3 mt-2">MyArticles</span></NavLink></li>
                       <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/my-profile'}><span className="px-2 py-2 mx-3 mt-2">MyProfile</span></NavLink></li>
                       <div className="relative inline-block text-left">
                         <div

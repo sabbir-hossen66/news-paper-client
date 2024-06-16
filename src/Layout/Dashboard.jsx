@@ -5,14 +5,15 @@ import { MdOutlineArticle } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { SiGradleplaypublisher } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
-// import useAdmin from "../hooks/useAdmin";
+import useAdmin from "../hooks/useAdmin";
 
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // TODO: IS ADMIN VALUE FROM THE DATABASE
-  // const [isAdmin] = useAdmin();
+
+  const [isAdmin] = useAdmin();
 
   return (
 
@@ -30,28 +31,43 @@ const Dashboard = () => {
 
         <div className="flex-1 mt-4">
           <ul className="pt-2 pb-4 space-y-1 text-sm">
+            {
+              isAdmin &&
 
-            <li className="rounded-sm">
-              <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                <FaUsersLine />
-                <NavLink to={'/dashboard/all-users'}><span className="lg:text-lg font-semibold">All Users</span></NavLink>
-              </a>
-            </li>
+              <>
 
-            <li className="rounded-sm">
-              <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                <MdOutlineArticle />
-                <NavLink to={'/dashboard/addminAllArticles'}> <span className="lg:text-lg font-semibold">All Article</span></NavLink>
-              </a>
-            </li>
+                <li className="rounded-sm">
+                  <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                    <FaUsersLine />
+                    <NavLink to={'/dashboard'} end><span className="lg:text-lg font-semibold">DashboardHome</span></NavLink>
+                  </a>
+                </li>
+                <li className="rounded-sm">
+                  <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                    <FaUsersLine />
+                    <NavLink to={'/dashboard/all-users'}><span className="lg:text-lg font-semibold">All Users</span></NavLink>
+                  </a>
+                </li>
+
+                <li className="rounded-sm">
+                  <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                    <MdOutlineArticle />
+                    <NavLink to={'/dashboard/addminAllArticles'}> <span className="lg:text-lg font-semibold">All Article</span></NavLink>
+                  </a>
+                </li>
 
 
-            <li className="rounded-sm">
-              <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                <SiGradleplaypublisher />
-                <NavLink to={'/dashboard/add-publisher'}><span className="lg:text-lg font-semibold">Add Publisher</span></NavLink>
-              </a>
-            </li>
+                <li className="rounded-sm">
+                  <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                    <SiGradleplaypublisher />
+                    <NavLink to={'/dashboard/add-publisher'}><span className="lg:text-lg font-semibold">Add Publisher</span></NavLink>
+                  </a>
+                </li> </>
+
+
+            }
+
+
 
 
             {/* divider is here */}
@@ -82,7 +98,7 @@ const Dashboard = () => {
             <rect width="352" height="32" x="80" y="384"></rect>
           </svg>
         </button>
-        {/* <h1 className="text-2xl font-bold text-center">Dashboard Content</h1> */}
+        <h1 className="text-2xl font-bold text-center">Dashboard Content</h1>
         <Outlet></Outlet>
       </div>
     </div>

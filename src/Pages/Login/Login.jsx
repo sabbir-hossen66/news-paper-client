@@ -19,6 +19,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const axiosPublic = useAxiosPublic();
+
   const from = location.state?.from?.pathname || '/'
 
 
@@ -92,6 +93,7 @@ const Login = () => {
           icon: 'success',
           confirmButtonText: 'cool'
         })
+        // navigate(from, { replace: true })
         navigate(location?.state ? location.state : "/")
 
       })
