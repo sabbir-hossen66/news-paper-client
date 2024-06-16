@@ -38,7 +38,7 @@ const Dashboard = () => {
 
                 <li className="rounded-sm">
                   <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                    <FaUsersLine />
+                    <IoHome />
                     <NavLink to={'/dashboard'} end><span className="lg:text-lg font-semibold">DashboardHome</span></NavLink>
                   </a>
                 </li>

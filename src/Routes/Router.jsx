@@ -20,6 +20,7 @@ import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 import AdminAllArticles from "../Pages/Dashboard/AdminAllArticles/AdminAllArticles";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import MyArticles from "../Pages/MyArticles/MyArticles";
+import MyAllArticle from "../Pages/MyAllArticle/MyAllArticle";
 
 
 
@@ -69,6 +70,11 @@ export const router = createBrowserRouter([
       {
         path: "/my-articles",
         element: <MyArticles></MyArticles>,
+
+      },
+      {
+        path: "/my-article",
+        element: <MyAllArticle></MyAllArticle>,
 
       },
 

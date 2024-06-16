@@ -126,7 +126,7 @@ const AdminAllArticles = () => {
               </button>
               <button
                 onClick={() => setModalArticle(article)}
-                className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
+                className=" bg-gray-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-gray-600 hover:scale-105"
               >
                 Decline
               </button>
@@ -138,7 +138,7 @@ const AdminAllArticles = () => {
               </button>
               <button
                 onClick={() => handleDelete(article._id)}
-                className="bg-gray-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-gray-600 hover:scale-105"
+                className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
               >
                 Delete
               </button>
@@ -178,14 +178,14 @@ const AdminAllArticles = () => {
       )}
 
       {/* pagination here */}
-      <div className="flex justify-center mt-6 mb-16">
+      <div className="flex justify-center mt-4">
         <nav>
           <ul className="inline-flex items-center -space-x-px">
             {[...Array(totalPages).keys()].map(pageNumber => (
               <li key={pageNumber} className="page-item">
                 <button
                   onClick={() => handleClick(pageNumber + 1)}
-                  className={`px-3 py-2 leading-tight ${currentPage === pageNumber + 1 ? 'bg-blue-500 text-white' : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-gray-700'} transition-colors duration-150`}
+                  className={`mb-20 mt-16 px-3 py-2 leading-tight ${currentPage === pageNumber + 1 ? 'bg-blue-500 text-white' : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-gray-700'} transition-colors duration-150`}
                 >
                   {pageNumber + 1}
                 </button>
