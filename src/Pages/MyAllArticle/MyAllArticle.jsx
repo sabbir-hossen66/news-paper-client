@@ -12,10 +12,37 @@ const MyAllArticle = ({ myArticle, refetch, axiosScure, index }) => {
   const [modalArticle, setModalArticle] = useState(null);
   const navigate = useNavigate();
 
-  const handleDelete = async (articleId) => {
-    await axiosScure.delete(`/api/articles/${articleId}`);
-    refetch()
+  const handleDelete = articleId => {
+
+    // await axiosScure.delete(`/myArticle/${articleId}`);
     // setArticles(articles.filter(article => article._id !== articleId));
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        axiosScure.delete(`/myArticle/${articleId}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          })
+      }
+    });
+
+
   };
 
   const handleUpdate = (articleId) => {
