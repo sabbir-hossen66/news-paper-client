@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer/Footer";
-// import ModalPage from "../components/ModalPage/ModalPage";
+
 
 
 
@@ -14,7 +14,7 @@ const Root = () => {
       {withoutHeaderFooter || <Navbar></Navbar>}
 
       <div className="flex-1">
-        {/* <ModalPage></ModalPage> */}
+
         <Outlet></Outlet>
       </div>
       {withoutHeaderFooter || <Footer></Footer>}

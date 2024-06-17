@@ -18,10 +18,11 @@ import PremiumArticle from "../Pages/PremiumArticle/PremiumArticle";
 import AdminRoute from "./AdminRoute";
 import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 import AdminAllArticles from "../Pages/Dashboard/AdminAllArticles/AdminAllArticles";
-import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import MyArticles from "../Pages/MyArticles/MyArticles";
 import UpdateMyArticle from "../Pages/UpdateMyArticle/UpdateMyArticle";
 import ModalPage from "../components/ModalPage/ModalPage";
+// import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import PieChart from "../Pages/Dashboard/PieChart/PieChart";
 
 
 
@@ -104,7 +105,8 @@ export const router = createBrowserRouter([
       {
 
         index: true,
-        element: <DashboardHome></DashboardHome>,
+        element: <PieChart></PieChart>
+
 
       },
       {
@@ -119,7 +121,11 @@ export const router = createBrowserRouter([
       {
         path: 'addminAllArticles',
         element: <AdminRoute><AdminAllArticles></AdminAllArticles></AdminRoute>
-      }
+      },
+      // {
+      //   path: 'pieChart',
+      //   element: <AdminRoute><PieChart></PieChart></AdminRoute>
+      // }
     ]
   }
 ]);

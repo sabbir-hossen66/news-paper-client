@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
+// import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../Providers/AuthProviders";
-import Swal from "sweetalert2";
+
 
 
 const SubsCription = () => {
   const { user } = useContext(AuthContext)
   const [subscriptionPeriod, setSubscriptionPeriod] = useState("");
-  const navigate = useNavigate();
-  const axiosPublic = useAxiosPublic();
+  // const navigate = useNavigate();
+  // const axiosPublic = useAxiosPublic();
 
   const handleSubscriptionChange = (e) => {
     setSubscriptionPeriod(e.target.value);
@@ -31,25 +31,27 @@ const SubsCription = () => {
       paymentInfo.price = 80;
     }
 
-    try {
-      const res = await axiosPublic.post('/payment', paymentInfo);  // Change to your API endpoint
-      console.log(res.data);
+    // try {
+    //   const res = await axiosPublic.post('/payment', paymentInfo);  // Change to your API endpoint
+    //   console.log(res.data);
 
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `This ${paymentInfo.plan} plan has been subscribed`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/#");
-      }
-    } catch (error) {
-      console.error("Error processing payment: ", error);
-    }
+    //   if (res.data.insertedId) {
+    //     Swal.fire({
+    //       position: "top-end",
+    //       icon: "success",
+    //       title: `This ${paymentInfo.plan} plan has been subscribed`,
+    //       showConfirmButton: false,
+    //       timer: 1500,
+    //     });
+    //     navigate("/#");
+    //   }
+    // } catch (error) {
+    //   console.error("Error processing payment: ", error);
+    // }
+
+
   };
-  
+
 
 
   return (
@@ -66,6 +68,8 @@ const SubsCription = () => {
         Subscribe Now
       </h2>
       <div className="flex flex-col items-center">
+
+
         <label className="mb-4 text-lg">Choose Subscription Period</label>
         <select
           value={subscriptionPeriod}
@@ -77,6 +81,8 @@ const SubsCription = () => {
           <option value="5 days">5 Days</option>
           <option value="10 days">10 Days</option>
         </select>
+
+
         <Link to={'/payment'}>
           <button
             onClick={handleSubscriptionSubmit}

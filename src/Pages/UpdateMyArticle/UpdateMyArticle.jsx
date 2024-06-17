@@ -238,6 +238,8 @@ const UpdateMyArticle = () => {
     },
   });
 
+  console.log(updateArticle);
+
   const onSubmit = async (data) => {
     try {
       let imageUrl = updateArticle.image; // Use existing image URL by default
@@ -270,7 +272,8 @@ const UpdateMyArticle = () => {
         tags: data.tags ? data.tags.map(tag => tag.value) : [],
       };
 
-      const articleRes = await axiosSecure.patch(`/myArticle/${id}`, articleItem);
+      const articleRes = await axiosSecure.patch(`/myArticle/${updateArticle}`, articleItem);
+      console.log(articleRes.data);
       if (articleRes.data.modifiedCount > 0) {
         reset();
         Swal.fire({
