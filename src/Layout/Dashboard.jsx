@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (
 
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-full">
       <div
         className={`fixed inset-0 bg-black text-white p-3 w-60 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
           } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:w-1/6`}
