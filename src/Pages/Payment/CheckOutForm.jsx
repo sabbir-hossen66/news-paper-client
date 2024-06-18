@@ -1,7 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
-// import SubsCription from "../SubsCription/SubsCription";
 import { AuthContext } from "../../Providers/AuthProviders";
 import SubsCription from "../SubsCription/SubsCription";
 

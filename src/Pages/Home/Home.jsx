@@ -5,19 +5,21 @@ import ModalPage from "../../components/ModalPage/ModalPage";
 import Publishers from "../../components/Publishers/Publishers";
 import Support from "../../components/Support/Support";
 import PricingCard from "../../components/PricingCard/PricingCard";
+import Statics from "../../components/Statics/Statics";
 
 
 const Home = () => {
   return (
     <>
       <Helmet>
-        <title>BookSwap || Home</title>
+        <title>MorningStar || Home</title>
       </Helmet>
       <div>
         <Banner></Banner>
         <ModalPage>  </ModalPage>
         <Publishers></Publishers>
         <PricingCard></PricingCard>
+        <Statics></Statics>
         <Feedback></Feedback>
         <Support></Support>
 

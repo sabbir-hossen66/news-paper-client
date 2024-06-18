@@ -49,6 +49,7 @@ const plans = [
 const PricingCard = () => {
   return (
     <div className="shadow-xl rounded-md text-gray-300 py-16 my-16">
+      <h2 className="text-5xl text-black text-center mb-6">Choose Your Plan</h2>
       <div className="container mx-auto px-6 md:px-12 xl:px-24">
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((plan, index) => (
