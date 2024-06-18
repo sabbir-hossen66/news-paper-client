@@ -42,3 +42,13 @@ const AllArticle = ({ article }) => {
 };
 
 export default AllArticle;
+
+
+
+
+
+
+
+
+
+
