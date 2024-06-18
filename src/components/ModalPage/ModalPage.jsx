@@ -10,7 +10,7 @@ const ModalPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowModal(true);
-    }, 7000); // 7 seconds
+    }, 10000); // 10 seconds
 
     return () => clearTimeout();
   }, []);
