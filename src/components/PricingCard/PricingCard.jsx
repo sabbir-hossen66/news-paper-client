@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const plans = [
   {
     title: "Premium Individual",
@@ -69,9 +71,13 @@ const PricingCard = () => {
                   </li>
                 ))}
               </ul>
-              <button className={`w-full py-2 rounded-lg ${plan.buttonBgColor} text-white font-semibold transition-transform duration-300 transform hover:scale-105`}>
-                {plan.buttonText}
-              </button>
+
+              <Link to={'/subscription'}>
+                <button className={`w-full py-2 rounded-lg ${plan.buttonBgColor} text-white font-semibold transition-transform duration-300 transform hover:scale-105`}>
+                  {plan.buttonText}
+                </button>
+              </Link>
+
               <p className="text-center text-sm mt-4">{plan.description}</p>
             </div>
           ))}
