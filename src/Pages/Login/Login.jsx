@@ -94,8 +94,8 @@ const Login = () => {
           icon: 'success',
           confirmButtonText: 'cool'
         })
-        // navigate(from, { replace: true })
-        navigate(location?.state ? location.state : "/")
+        navigate(from, { replace: true })
+        // navigate(location?.state ? location.state : "/")
 
       })
       .catch(error => {

@@ -1,10 +1,10 @@
 # Morning Star
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is about News paper related website. In this page A user can see Article and add article.
 
-Currently, two official plugins are available:
-
-- [@live-link](https://morning-star-1dfb3.web.app/) 
+- [@live-link](https://morning-star-1dfb3.web.app/)
+-Admin user name( new@gmail.com)
+-Admin password(Newname1@) 
 - I'm using React-Router-dom
 - For styling,using Tailwind Css
 - For Authentication intrigration,install firebase
