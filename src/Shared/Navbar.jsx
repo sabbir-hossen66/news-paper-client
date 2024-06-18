@@ -207,12 +207,13 @@ const Navbar = () => {
             >
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
                 <li className="list-none head-section hover:animate-pulse"><NavLink to={'/'}><span className="px-2 py-2 mx-3 mt-2">Home</span></NavLink></li>
-                <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/all-articles'}><span className="px-2 py-2 mx-3 mt-2">All Articles</span></NavLink></li>
+
 
                 {
                   user ?
                     <>
                       <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/add-articles'}><span className="px-2 py-2 mx-3 mt-2">Add Articles</span></NavLink></li>
+                      <li className="list-none head-section hover:animate-pulse"> <NavLink to={'/all-articles'}><span className="px-2 py-2 mx-3 mt-2">All Articles</span></NavLink></li>
 
                       {
                         user && isAdmin &&

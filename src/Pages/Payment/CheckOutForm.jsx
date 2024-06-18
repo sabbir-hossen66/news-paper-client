@@ -57,7 +57,7 @@ const CheckOutForm = () => {
       setError('')
     }
 
-    // confirm payment
+
     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: card,
@@ -85,7 +85,7 @@ const CheckOutForm = () => {
 
   return (
     <div className="container mx-auto my-16 p-8 bg-white shadow-lg rounded-lg max-w-md">
-      {/* Banner Image */}
+
       <div className="mb-8 flex justify-center">
         <img
           src="https://i.ibb.co/8zNCz1W/download-1.png"
@@ -123,6 +123,16 @@ const CheckOutForm = () => {
 };
 
 export default CheckOutForm;
+
+
+
+
+
+
+
+
+
+
 
 
 
