@@ -3,13 +3,15 @@ import registerAnimation from '../../assets/Animation - 1717611024556.json'
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
   const { createUser, updatePRf } = useContext(AuthContext)
   const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
   const {
     register,
     handleSubmit,
@@ -70,14 +72,24 @@ const Register = () => {
               <input type="email" {...register("email", { required: true })} id="email" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
               {errors.email && <span className='text-red-500'>Please fill up this field</span>}
             </div>
+
             <div>
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-700">Password</label>
-              <input type="password" {...register("password", {
-                required: true,
-                minLength: 6,
-                maxLength: 15,
-                pattern: /^[^A-Z0-9!@#$%^&*(),.?":{}|<>]*$/
-              })} id="password" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
+              <div className='relative'>
+                <input type={showPassword ? "text" : "password"} {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 15,
+                  // pattern: /^[^A-Z0-9!@#$%^&*(),.?":{}|<>]+$/
+                  pattern: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z0-9!@#$%^&*(),.?":{}|<>]+$/
+                })} id="password" className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out" />
+                <span className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer' onClick={() => setShowPassword(!showPassword)} >
+                  {
+                    showPassword ? <FaEyeSlash /> : <FaEye />
+                  }
+                </span>
+              </div>
+
               {errors.password?.type === "minLength" && (
                 <p className='text-red-500'>password must be 6 characters</p>
               )}
@@ -85,7 +97,7 @@ const Register = () => {
                 <p className='text-red-500'>password must be less than 15 characters</p>
               )}
               {errors.password?.type === "pattern" && (
-                <p className='text-red-500'>Password must not contain capital letters, numbers, or special characters.</p>
+                <p className='text-red-500'>Password must have be a capital letters, numbers, or special characters.</p>
               )}
             </div>
 

@@ -153,6 +153,7 @@ const Login = () => {
                   required
                 />
               </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
@@ -175,6 +176,7 @@ const Login = () => {
                   </div>
                 </div>
               </motion.div>
+
               <motion.div
                 className="flex items-center justify-between"
                 initial={{ opacity: 0, y: 20 }}
