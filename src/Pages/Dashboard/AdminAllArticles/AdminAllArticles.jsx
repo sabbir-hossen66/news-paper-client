@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 
 const AdminAllArticles = () => {
   const axiosSecure = useAxiosSecure();
+
   const { data: articles = [], refetch } = useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
@@ -41,52 +42,83 @@ const AdminAllArticles = () => {
   const [declineReason, setDeclineReason] = useState('');
 
   const handleApprove = (articleId) => {
-    axiosSecure.patch(`/articles/approve/${articleId}`)
-      .then(res => {
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Article Approved',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
+    console.log(articleId);
+    {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Article Approved',
+        showConfirmButton: false,
+        timer: 1500
       });
+    }
+
+    // axiosSecure.patch(`/articles/approve/${articleId}`)
+    //   .then(res => {
+    //     if (res.data.modifiedCount > 0) {
+    //       refetch();
+    //       Swal.fire({
+    //         position: 'top-end',
+    //         icon: 'success',
+    //         title: 'Article Approved',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //       });
+    //     }
+    //   });
   };
 
   const handleDecline = () => {
-    axiosSecure.patch(`/articles/decline/${modalArticle._id}`, { reason: declineReason })
-      .then(res => {
-        if (res.data.modifiedCount > 0) {
-          setModalArticle(null);
-          refetch();
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Article Declined',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      });
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Article Declined',
+      showConfirmButton: false,
+      timer: 1500
+    });
+
+    refetch()
+
+    // axiosSecure.patch(`/articles/decline/${modalArticle._id}`, { reason: declineReason })
+    //   .then(res => {
+    //     if (res.data.modifiedCount > 0) {
+    //       setModalArticle(null);
+    //       refetch();
+    //       Swal.fire({
+    //         position: 'top-end',
+    //         icon: 'success',
+    //         title: 'Article Declined',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //       });
+    //     }
+    //   });
   };
 
   const handleMakePremium = (articleId) => {
-    axiosSecure.patch(`/articles/make-premium/${articleId}`)
-      .then(res => {
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Article Marked as Premium',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      });
+    console.log(articleId);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Article Marked as premium',
+      showConfirmButton: false,
+      timer: 1500
+    });
+
+
+    // axiosSecure.patch(`/articles/make-premium/${articleId}`)
+    //   .then(res => {
+    //     if (res.data.modifiedCount > 0) {
+    //       refetch();
+    //       Swal.fire({
+    //         position: 'top-end',
+    //         icon: 'success',
+    //         title: 'Article Marked as Premium',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //       });
+    //     }
+    //   });
   };
 
   const handleDelete = articleId => {
@@ -151,12 +183,14 @@ const AdminAllArticles = () => {
                 >
                   Decline
                 </button>
+
                 <button
                   onClick={() => handleMakePremium(article._id)}
                   className="bg-yellow-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-yellow-600 hover:scale-105"
                 >
                   Make Premium
                 </button>
+
                 <button
                   onClick={() => handleDelete(article._id)}
                   className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
