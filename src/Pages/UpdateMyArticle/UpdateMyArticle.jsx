@@ -4,6 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Controller, useForm } from "react-hook-form";
 import Select from 'react-select';
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const publishers = [
   { value: 'local', label: 'Local' },
@@ -29,7 +32,9 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const UpdateMyArticle = () => {
   const axiosScure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const { id } = useParams()
+  const { user } = useContext(AuthContext)
 
   const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
 
@@ -50,7 +55,7 @@ const UpdateMyArticle = () => {
 
 
     const imageFile = { image: data.image[0] }
-    const res = await axiosScure.post(image_hosting_api, imageFile, {
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
         'content-type': 'multipart/form-data'
       }
@@ -64,7 +69,7 @@ const UpdateMyArticle = () => {
         authorEmail: data.authorEmail,
         image: res.data.data.display_url,
         description: data.description,
-        publisher: data.publisher.map(publish => publish.value),
+        publisher: data.publisher.value,
         tags: data.tags.map(tag => tag.value)
       };
       console.log(res.data?.success);
@@ -76,7 +81,7 @@ const UpdateMyArticle = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: `${data.name} is updated to the menu.`,
+          title: `article is updated to the menu.`,
           showConfirmButton: false,
           timer: 1500
         });
@@ -107,11 +112,23 @@ const UpdateMyArticle = () => {
             />
             {errors.title && <p className="text-red-500 text-xs mt-1">Title is required.</p>}
           </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">AuthorEmail</label>
+            <input
+              defaultValue={user?.email}
+              readOnly
+              type="email"
+              {...register('authorEmail')}
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
+            />
+            {errors.authorEmail && <p className="text-red-500 text-xs mt-1"> authorEmail is required.</p>}
+          </div>
 
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Publisher</label>
             <Controller
               name="publisher"
+              defaultValue={updateArticle.publisher}
               control={control}
               rules={{ required: true }}
               render={({ field }) =>

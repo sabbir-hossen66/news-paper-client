@@ -6,6 +6,7 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
+import { Helmet } from 'react-helmet-async';
 
 
 const publishers = [
@@ -85,85 +86,108 @@ const AddArticles = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md transform transition duration-500 hover:scale-105"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">Submit an Article</h2>
+    <>
+      <Helmet>
+        <title>MorningStar || AddArticles</title>
+      </Helmet>
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md transform transition duration-500 hover:scale-105"
+        >
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">Submit an Article</h2>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Title</label>
-          <input
-            type="text"
-            {...register('title', { required: true })}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
-          />
-          {errors.title && <p className="text-red-500 text-xs mt-1">Title is required.</p>}
-        </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Title</label>
+            <input
+              type="text"
+              {...register('title', { required: true })}
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
+            />
+            {errors.title && <p className="text-red-500 text-xs mt-1">Title is required.</p>}
+          </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Publisher</label>
-          <Controller
-            name="publisher"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) =>
-              <Select
-                {...field}
-                options={publishers}
-                className="w-full"
-              />
-            }
-          />
-          {errors.publisher && <p className="text-red-500 text-xs mt-1">Publisher is required.</p>}
-        </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Publisher</label>
+            <Controller
+              name="publisher"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) =>
+                <Select
+                  {...field}
+                  options={publishers}
+                  className="w-full"
+                />
+              }
+            />
+            {errors.publisher && <p className="text-red-500 text-xs mt-1">Publisher is required.</p>}
+          </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Tags</label>
-          <Controller
-            name="tags"
-            control={control}
-            render={({ field }) =>
-              <Select
-                {...field}
-                isMulti
-                options={tagOptions}
-                className="w-full"
-              />
-            }
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Tags</label>
+            <Controller
+              name="tags"
+              control={control}
+              render={({ field }) =>
+                <Select
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Description</label>
-          <textarea
-            {...register('description', { required: true })}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
-          ></textarea>
-          {errors.description && <p className="text-red-500 text-xs mt-1">Description is required.</p>}
-        </div>
+                  {...field}
+                  isMulti
+                  options={tagOptions}
+                  className="w-full"
+                />
+              }
+            />
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Image</label>
-          <input
-            type="file"
-            {...register('image', { required: true })}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
-          />
-          {errors.image && <p className="text-red-500 text-xs mt-1">Image is required.</p>}
-        </div>
-
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
+            {/* <select
+            defaultValue="default"
+            {...register("tags")}
+            className="p-2 rounded-xl border"
           >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+
+            <option value="politics">politics</option>
+            <option value="health">health</option>
+            <option value="technology">technology</option>
+            <option value="sports">sports</option>
+            <option value="environment">environment</option>
+          </select> */}
+
+          </div>
+
+
+
+
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Description</label>
+            <textarea
+              {...register('description', { required: true })}
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
+            ></textarea>
+            {errors.description && <p className="text-red-500 text-xs mt-1">Description is required.</p>}
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Image</label>
+            <input
+              type="file"
+              {...register('image', { required: true })}
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 transition duration-200"
+            />
+            {errors.image && <p className="text-red-500 text-xs mt-1">Image is required.</p>}
+          </div>
+
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

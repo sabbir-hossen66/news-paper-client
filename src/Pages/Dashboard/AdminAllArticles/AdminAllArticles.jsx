@@ -2,6 +2,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 
 const AdminAllArticles = () => {
@@ -120,100 +121,105 @@ const AdminAllArticles = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-3xl font-semibold mb-4">All Articles</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {currentUsers.map((article) => (
-          <div key={article._id} className="bg-white rounded-lg shadow-lg p-4 transform hover:-translate-y-2 transition duration-300" style={{ border: '1px solid transparent', borderRadius: '8px', backgroundImage: 'linear-gradient(white, white), radial-gradient(circle at top left, #f00, #0f0, #00f)', display: 'flex', flexDirection: 'column' }}>
-            <img src={article.image} alt="Author" className="w-full h-48 object-cover rounded-md mb-4" />
-            <div className="flex-grow">
-              <h3 className="text-xl font-semibold">{article.title}</h3>
-              <p className="text-gray-600 mb-2">By: {article.authorName}</p>
-              <p className="text-gray-600 mb-2">Email: {article.authorEmail}</p>
-              <p className="text-gray-600 mb-2">Posted on: {new Date(article.postedDate).toLocaleDateString()}</p>
-              <p className={`text-gray-600 mb-2 ${article.status === 'declined' ? 'text-red-500' : ''}`}>Status: {article.status}</p>
-            </div>
-            <div className="flex justify-between mt-4">
-              <button
-                onClick={() => handleApprove(article._id)}
-                className="bg-green-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-green-600 hover:scale-105"
-              >
-                Approve
-              </button>
-              <button
-                onClick={() => setModalArticle(article)}
-                className=" bg-gray-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-gray-600 hover:scale-105"
-              >
-                Decline
-              </button>
-              <button
-                onClick={() => handleMakePremium(article._id)}
-                className="bg-yellow-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-yellow-600 hover:scale-105"
-              >
-                Make Premium
-              </button>
-              <button
-                onClick={() => handleDelete(article._id)}
-                className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal for Decline Reason */}
-      {modalArticle && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-96">
-            <h3 className="text-xl font-semibold mb-4">Decline Article</h3>
-            <textarea
-              value={declineReason}
-              onChange={(e) => setDeclineReason(e.target.value)}
-              className="w-full border rounded-md p-2 mb-4"
-              rows="4"
-              placeholder="Enter the reason for declining..."
-            ></textarea>
-            <div className="flex justify-between">
-              <button
-                onClick={() => setModalArticle(null)}
-                className="bg-gray-500 text-white px-4 py-2 rounded-md shadow-md transform transition duration-300 hover:bg-gray-600 hover:scale-105"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleDecline}
-                className="bg-red-500 text-white px-4 py-2 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* pagination here */}
-      <div className="flex justify-center mt-4">
-        <nav>
-          <ul className="inline-flex items-center -space-x-px">
-            {[...Array(totalPages).keys()].map(pageNumber => (
-              <li key={pageNumber} className="page-item">
+    <>
+      <Helmet>
+        <title>MorningStar || AllArticles</title>
+      </Helmet>
+      <div>
+        <h2 className="text-3xl font-semibold mb-4">All Articles</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {currentUsers.map((article) => (
+            <div key={article._id} className="bg-white rounded-lg shadow-lg p-4 transform hover:-translate-y-2 transition duration-300" style={{ border: '1px solid transparent', borderRadius: '8px', backgroundImage: 'linear-gradient(white, white), radial-gradient(circle at top left, #f00, #0f0, #00f)', display: 'flex', flexDirection: 'column' }}>
+              <img src={article.image} alt="Author" className="w-full h-48 object-cover rounded-md mb-4" />
+              <div className="flex-grow">
+                <h3 className="text-xl font-semibold">{article.title}</h3>
+                <p className="text-gray-600 mb-2">By: {article.authorName}</p>
+                <p className="text-gray-600 mb-2">Email: {article.authorEmail}</p>
+                <p className="text-gray-600 mb-2">Posted on: {new Date(article.postedDate).toLocaleDateString()}</p>
+                <p className={`text-gray-600 mb-2 ${article.status === 'declined' ? 'text-red-500' : ''}`}>Status: {article.status}</p>
+              </div>
+              <div className="flex justify-between mt-4">
                 <button
-                  onClick={() => handleClick(pageNumber + 1)}
-                  className={`mb-20 mt-16 px-3 py-2 leading-tight ${currentPage === pageNumber + 1 ? 'bg-blue-500 text-white' : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-gray-700'} transition-colors duration-150`}
+                  onClick={() => handleApprove(article._id)}
+                  className="bg-green-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-green-600 hover:scale-105"
                 >
-                  {pageNumber + 1}
+                  Approve
                 </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                <button
+                  onClick={() => setModalArticle(article)}
+                  className=" bg-gray-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-gray-600 hover:scale-105"
+                >
+                  Decline
+                </button>
+                <button
+                  onClick={() => handleMakePremium(article._id)}
+                  className="bg-yellow-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-yellow-600 hover:scale-105"
+                >
+                  Make Premium
+                </button>
+                <button
+                  onClick={() => handleDelete(article._id)}
+                  className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal for Decline Reason */}
+        {modalArticle && (
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+              <h3 className="text-xl font-semibold mb-4">Decline Article</h3>
+              <textarea
+                value={declineReason}
+                onChange={(e) => setDeclineReason(e.target.value)}
+                className="w-full border rounded-md p-2 mb-4"
+                rows="4"
+                placeholder="Enter the reason for declining..."
+              ></textarea>
+              <div className="flex justify-between">
+                <button
+                  onClick={() => setModalArticle(null)}
+                  className="bg-gray-500 text-white px-4 py-2 rounded-md shadow-md transform transition duration-300 hover:bg-gray-600 hover:scale-105"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleDecline}
+                  className="bg-red-500 text-white px-4 py-2 rounded-md shadow-md transform transition duration-300 hover:bg-red-600 hover:scale-105"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* pagination here */}
+        <div className="flex justify-center mt-4">
+          <nav>
+            <ul className="inline-flex items-center -space-x-px">
+              {[...Array(totalPages).keys()].map(pageNumber => (
+                <li key={pageNumber} className="page-item">
+                  <button
+                    onClick={() => handleClick(pageNumber + 1)}
+                    className={`mb-20 mt-16 px-3 py-2 leading-tight ${currentPage === pageNumber + 1 ? 'bg-blue-500 text-white' : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-gray-700'} transition-colors duration-150`}
+                  >
+                    {pageNumber + 1}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        {/* ------------------------------------ */}
+
       </div>
-
-      {/* ------------------------------------ */}
-
-    </div>
+    </>
   );
 };
 

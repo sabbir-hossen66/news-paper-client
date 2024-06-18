@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -118,6 +119,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>MorningStar || Login</title>
+      </Helmet>
 
       <div className="flex flex-col lg:flex-row items-center justify-evenly min-h-screen bg-gray-100 ">
         <div>

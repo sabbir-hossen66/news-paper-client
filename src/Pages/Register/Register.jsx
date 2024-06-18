@@ -49,7 +49,6 @@ const Register = () => {
     <div>
       <Helmet>
         <title>Morning Star || Register</title>
-
       </Helmet>
       <div className="flex flex-col lg:flex-row items-center justify-evenly min-h-screen bg-gray-100">
         <Lottie className='hover:animate-spin' animationData={registerAnimation} />
